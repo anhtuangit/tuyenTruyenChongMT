@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuyên truyền phòng, chống ma túy | Đoàn TNCS Hồ Chí Minh Phường Điện Bàn Đông</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Bảng màu được hiện đại hóa, tươi sáng và sang trọng hơn */
+    --navy: #1E3A8A; 
+    --navy-deep: #0F172A;
+    --blue: #2563EB;
+    --blue-light: #3B82F6;
+    --gold: #F59E0B;
+    --gold-deep: #D97706;
+    --danger: #E11D48;
+    --paper: #F8FAFC;
+    --card: #FFFFFF;
+    --ink: #334155;
+    --mist: #64748B;
+    --line: #E2E8F0;
+    --radius: 14px;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.1);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Be Vietnam Pro', system-ui, sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img, video{max-width:100%; display:block;}
+
+  a{color:inherit;}
+
+  .container{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    background:linear-gradient(90deg, var(--navy), var(--blue));
+    color:#fff;
+    font-size:13px;
+    letter-spacing:.04em;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  .topbar .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:10px;
+    padding-bottom:10px;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .topbar-org{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:600;
+    text-transform:uppercase;
+    color:#F1F5F9;
+  }
+  .topbar-org .dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--gold);
+    flex-shrink:0;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+  }
+  .topbar-tag{
+    color:#CBD5E1;
+    font-weight:500;
+  }
+
+  /* ---------- HAZARD DIVIDER ---------- */
+  .hazard{
+    height:10px;
+    width:100%;
+    background:repeating-linear-gradient(
+      -45deg,
+      var(--gold) 0 18px,
+      var(--navy-deep) 18px 36px
+    );
+  }
+
+  /* ---------- HERO IMAGE ---------- */
+  .hero{
+    position:relative;
+    background:var(--navy-deep);
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+  }
+  .hero-media{
+    width:min(100%, calc((100vh - 60px) * 1375 / 768));
+    aspect-ratio:1375/768;
+    background:linear-gradient(135deg, var(--navy) 0%, var(--blue-light) 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#EAF2FB;
+    position:relative;
+    overflow:hidden;
+  }
+
+  @media (max-width:760px){
+    .hero-media{
+      width:100%;
+    }
+  }
+  .hero-media > img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    display:block;
+  }
+
+  .hero-qr-overlay{
+    position:absolute;
+    left:44.4%;
+    top:55.5%;
+    width:11%;
+    height:19.8%;
+    background:#fff;
+    border-radius:6px;
+    box-sizing:border-box;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease;
+  }
+  .hero-qr-overlay:hover {
+    transform: scale(1.05);
+  }
+  .hero-qr-overlay img{
+    width:88%;
+    height:88%;
+    object-fit:contain;
+    display:block;
+  }
+
+  /* ---------- VIDEO SECTION ---------- */
+  .video-section{
+    background:linear-gradient(160deg, var(--navy) 0%, #2563EB 100%);
+    padding:56px 0 60px;
+    color:#fff;
+  }
+  .section-eyebrow{
+    color:var(--gold);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .video-section h2{
+    font-size:clamp(24px, 3vw, 32px);
+    font-weight:800;
+    margin-bottom:10px;
+    max-width:620px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .video-section p.lead{
+    color:#DBEAFE;
+    max-width:560px;
+    margin-bottom:32px;
+    font-size:15px;
+  }
+  .video-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    background:var(--navy-deep);
+    border-radius:var(--radius);
+    border:4px solid rgba(255, 255, 255, 0.1);
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.3);
+  }
+  .video-frame video{
+    width:100%; height:100%; object-fit:cover;
+  }
+
+  /* ---------- INTRO ---------- */
+  .intro{
+    padding:64px 0 8px;
+  }
+  .intro-inner{
+    max-width:760px;
+  }
+  .intro h1{
+    font-size:clamp(28px, 4vw, 40px);
+    font-weight:800;
+    color:var(--navy-deep);
+    line-height:1.18;
+    margin-bottom:18px;
+  }
+  .intro h1 em{
+    font-style:normal;
+    color:var(--danger);
+    background: linear-gradient(120deg, var(--danger), #BE123C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .intro p{
+    font-size:16.5px;
+    color:var(--mist);
+    max-width:640px;
+  }
+
+  /* ---------- HARMS ---------- */
+  .harms{
+    padding:48px 0 24px;
+  }
+  .harms .section-eyebrow{color:var(--danger);}
+  .harms h2{
+    font-size:clamp(22px, 2.6vw, 28px);
+    font-weight:800;
+    color:var(--navy-deep);
+    margin-bottom:36px;
+    max-width:640px;
+  }
+  .harm-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:18px;
+  }
+  .harm-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 20px;
+    border-top:4px solid var(--danger);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .harm-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+  .harm-card .icon{
+    width:42px; height:42px;
+    border-radius:10px;
+    background:#FFF1F2;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:16px;
+  }
+  .harm-card .icon svg{width:22px; height:22px; stroke:var(--danger); fill:none; stroke-width:2;}
+  .harm-card h3{
+    font-size:15.5px;
+    font-weight:700;
+    color:var(--navy-deep);
+    margin-bottom:8px;
+  }
+  .harm-card p{
+    font-size:13.6px;
+    color:var(--mist);
+  }
+
+  /* ---------- ACTIONS ---------- */
+  .actions{
+    background: linear-gradient(180deg, #F1F5F9 0%, #E2E8F0 100%);
+    padding:60px 0 64px;
+    margin-top:52px;
+  }
+  .actions .section-eyebrow{color:var(--blue);}
+  .actions h2{
+    font-size:clamp(22px, 2.6vw, 28px);
+    font-weight:800;
+    color:var(--navy-deep);
+    margin-bottom:8px;
+    max-width:640px;
+  }
+  .actions p.lead{
+    color:var(--mist);
+    max-width:600px;
+    margin-bottom:36px;
+    font-size:15.5px;
+  }
+  .action-list{
+    list-style:none;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px 24px;
+  }
+  .action-list li{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:18px 18px;
+    border:1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease;
+  }
+  .action-list li:hover {
+    transform: translateY(-2px);
+  }
+  .action-list .mark{
+    flex-shrink:0;
+    width:26px; height:26px;
+    border-radius:50%;
+    background: linear-gradient(135deg, var(--blue-light), var(--blue));
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700;
+    margin-top:2px;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+  }
+  .action-list h4{
+    font-size:15px;
+    font-weight:700;
+    color:var(--navy-deep);
+    margin-bottom:4px;
+  }
+  .action-list p{
+    font-size:13.6px;
+    color:var(--mist);
+  }
+
+  /* ---------- HOTLINE ---------- */
+  .hotline{
+    padding:40px 0 0;
+  }
+  .hotline-box{
+    background:linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    border-radius:var(--radius);
+    padding:26px 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+    color:#fff;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.25);
+  }
+  .hotline-box .ht{
+    font-size:15px;
+    font-weight:600;
+  }
+  .hotline-box .ht span{
+    display:block;
+    font-size:12.5px;
+    font-weight:400;
+    color:#DBEAFE;
+    margin-top:3px;
+  }
+  .hotline-box .hn{
+    font-size:26px;
+    font-weight:800;
+    color:var(--gold);
+    letter-spacing:.02em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    margin-top:56px;
+  }
+  .slogan-band{
+    background:var(--gold);
+    color:var(--navy-deep);
+    text-align:center;
+    padding:26px 20px;
+  }
+  .slogan-band p{
+    font-size:clamp(16px, 2.4vw, 22px);
+    font-weight:800;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+  }
+  .footer-base{
+    background:var(--navy-deep);
+    color:#94A3B8;
+    text-align:center;
+    padding:22px 20px 26px;
+    font-size:12.5px;
+  }
+  .footer-base strong{
+    color:#F1F5F9;
+    font-weight:700;
+  }
+
+  @media (max-width:760px){
+    .harm-grid{grid-template-columns:1fr 1fr;}
+    .action-list{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .harm-grid{grid-template-columns:1fr;}
+    .hotline-box{flex-direction:column; align-items:flex-start;}
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--gold);
+    outline-offset:2px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .harm-card, .action-list li, .hero-qr-overlay { transition: none; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-org"><span class="dot"></span>Đoàn TNCS Hồ Chí Minh — Liên Quân Hà Quảng</div>
+      <div class="topbar-tag">Trang tuyên truyền phòng, chống ma túy</div>
+    </div>
+  </div>
+
+  <div class="hazard"></div>
+
+  <!-- HERO IMAGE -->
+  <div class="hero">
+    <div class="hero-media" id="hero-image-slot">
+      <img src="./anh/haQuang2.png" alt="Banner Ngày hội Mật thư Online Điện Bàn Đông">
+
+      <div class="hero-qr-overlay">
+        <img id="qr-code-img"
+             src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=DAN_URL_TRANG_WEB_VAO_DAY"
+             alt="Mã QR liên kết đến trang web">
+      </div>
+    </div>
+    <div class="hero-caption"></div>
+  </div>
+
+  <!-- VIDEO SECTION -->
+  <div class="video-section">
+    <div class="container">
+      <div class="section-eyebrow">Video tuyên truyền</div>
+      <h2>Ma túy — Hiểm họa không của riêng ai</h2>
+      <p class="lead">Đoạn phim ngắn về tác hại của ma túy đối với sức khỏe, gia đình và cộng đồng, cùng những việc mỗi người có thể làm để phòng tránh.</p>
+
+      <div class="video-frame" id="video-slot">
+        <video controls poster="./anh/anhtuyentruyen2.jpg" height="90%">
+               <source src="./anh/0821 (3).mp4" type="video/mp4">
+        </video> 
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <div class="container">
+      <div class="intro-inner">
+        <h1>Ma túy không chừa một ai — <em>nhưng mỗi chúng ta đều có thể ngăn nó lại.</em></h1>
+        <p>Ma túy hủy hoại sức khỏe, phá vỡ hạnh phúc gia đình và kéo theo hệ lụy cho cả cộng đồng. Tuổi trẻ Điện Bàn Đông cùng nhau tìm hiểu, nhận diện và hành động để giữ cho bản thân, gia đình và khu phố mình luôn an toàn, lành mạnh.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HARMS -->
+  <div class="harms">
+    <div class="container">
+      <div class="section-eyebrow">Tác hại của ma túy</div>
+      <h2>Một quyết định sai lầm, nhiều mất mát kéo dài</h2>
+
+      <div class="harm-grid">
+        <div class="harm-card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.5 8 2 4 6 4c2 0 3.5 1.3 6 4 2.5-2.7 4-4 6-4 4 0 5.5 4 3.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg></div>
+          <h3>Sức khỏe</h3>
+          <p>Suy kiệt thể chất, tổn thương não bộ và hệ thần kinh, nguy cơ sốc thuốc, lây nhiễm HIV, viêm gan qua đường tiêm chích.</p>
+        </div>
+        <div class="harm-card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 21v-2a4 4 0 0 1 4-4h3a4 4 0 0 1 4 4v2M16 3.13a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.87M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div>
+          <h3>Gia đình</h3>
+          <p>Kinh tế kiệt quệ, niềm tin sụp đổ, cha mẹ đau lòng, con cái thiếu chỗ dựa — hạnh phúc gia đình bị bào mòn từng ngày.</p>
+        </div>
+        <div class="harm-card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></div>
+          <h3>Học tập, tương lai</h3>
+          <p>Sa sút học lực, mất phương hướng nghề nghiệp, đánh mất cơ hội phát triển bản thân trong những năm tháng quan trọng nhất.</p>
+        </div>
+        <div class="harm-card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2 3 7v6c0 5 4 9 9 9s9-4 9-9V7l-9-5zM12 8v5M12 16h.01"/></svg></div>
+          <h3>Pháp luật, xã hội</h3>
+          <p>Vi phạm pháp luật, gia tăng trộm cắp và bạo lực, gây bất an cho khu dân cư và gánh nặng cho cả cộng đồng.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+    <div class="container">
+      <div class="section-eyebrow">Hành động của chúng ta</div>
+      <h2>Chung tay bảo vệ mọi người khỏi ma túy</h2>
+      <p class="lead">Phòng, chống ma túy hiệu quả nhất khi bắt đầu từ những việc cụ thể trong chính khu phố, gia đình và mỗi cá nhân.</p>
+
+      <ul class="action-list">
+        <li>
+          <div class="mark">1</div>
+          <div>
+            <h4>Nói không với ma túy</h4>
+            <p>Kiên quyết từ chối dù chỉ một lần thử, dưới bất kỳ hình thức rủ rê, thuyết phục nào.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mark">2</div>
+          <div>
+            <h4>Nhận biết dấu hiệu sớm</h4>
+            <p>Quan tâm, để ý những thay đổi bất thường ở người thân, bạn bè, đặc biệt là thanh thiếu niên.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mark">3</div>
+          <div>
+            <h4>Tố giác kịp thời</h4>
+            <p>Chủ động cung cấp thông tin về mua bán, sử dụng trái phép chất ma túy cho công an khu vực.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mark">4</div>
+          <div>
+            <h4>Đồng hành, không kỳ thị</h4>
+            <p>Hỗ trợ người sau cai nghiện tái hòa nhập cộng đồng, tạo môi trường sống lành mạnh xung quanh họ.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mark">5</div>
+          <div>
+            <h4>Tham gia hoạt động Đoàn — Hội</h4>
+            <p>Tích cực sinh hoạt trong các câu lạc bộ, đội, nhóm thanh niên để xây dựng lối sống tích cực, tránh xa cám dỗ.</p>
+          </div>
+        </li>
+        <li>
+          <div class="mark">6</div>
+          <div>
+            <h4>Lan tỏa thông điệp</h4>
+            <p>Chia sẻ những nội dung tuyên truyền như trang này đến bạn bè, người thân để cùng nâng cao nhận thức.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HOTLINE -->
+  <div class="container">
+    <div class="hotline">
+      <div class="hotline-box">
+        <div class="ht">Phát hiện dấu hiệu mua bán, sử dụng ma túy?
+          <span>Liên hệ Công an Liên Quân Hà Quảng hoặc Đoàn Phường để được hỗ trợ</span>
+        </div>
+        <div class="hn">Đường dây nóng: 113</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="slogan-band">
+      <p>Chung tay phòng, chống ma túy — Vì sức khỏe cộng đồng</p>
+    </div>
+    <div class="footer-base">
+      <strong>Đoàn TNCS Hồ Chí Minh Liên Quân Hà Quảng</strong> · Trang tuyên truyền phòng, chống ma túy
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var qrImg = document.getElementById('qr-code-img');
+      var currentUrl = window.location.href;
+      if (currentUrl && currentUrl.indexOf('http') === 0) {
+        qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(currentUrl);
+      }
+    })();
+  </script>
+
+</body>
+</html>
